@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-noir: #08080A;
+    --bg-noir-deep: #040406;
+    --bg-noir-card: #111116;
+    --bg-navy: #08080A;
+    --bg-navy-deep: #040406;
+    --color-gold: #D4AF37;
+    --color-gold-24k: #F3D053;
+    --color-gold-light: #FFF0A8;
+    --color-gold-dark: #7A5F19;
+    --color-ivory: #FFFDF9;
+    --color-ivory-muted: #D5CDC0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-noir-deep);
+    color: var(--color-ivory);
+  }
+
+  body {
+    background-color: var(--bg-noir-deep);
+    color: var(--color-ivory);
+    font-family: 'Jost', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::selection {
+    background-color: rgba(243, 208, 83, 0.35);
+    color: #FFFDF9;
+  }
+}
+
+/* Royal 24K Gold Metallic Foil Text */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-foil-text {
+  background: linear-gradient(
+    120deg,
+    #AA852C 0%,
+    #F3D053 25%,
+    #FFFDF9 50%,
+    #D4AF37 75%,
+    #7A5F19 100%
+  );
+  background-size: 250% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldShimmer 7s ease-in-out infinite;
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 25px rgba(243, 208, 83, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.08);
+}
+
+/* Obsidian Noir Frosted Glass Cards with 24K Gold Accents */
+.glass-emerald-card,
+.glass-noir-card {
+  background: radial-gradient(circle at 50% 0%, rgba(24, 24, 32, 0.88) 0%, rgba(10, 10, 14, 0.94) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.98),
+    0 0 30px rgba(212, 175, 55, 0.12),
+    inset 0 1px 1px rgba(255, 240, 168, 0.25);
+}
+
+.glass-navy-card {
+  background: radial-gradient(circle at 50% 0%, rgba(18, 18, 24, 0.92) 0%, rgba(6, 6, 8, 0.98) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.98),
+    0 0 25px rgba(212, 175, 55, 0.08),
+    inset 0 1px 1px rgba(255, 240, 168, 0.18);
+}
+
+/* Islamic Geometric Background Pattern */
+.bg-arabesque-pattern {
+  background-color: #040406;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.09) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 0% 0%, rgba(243, 208, 83, 0.12) 2px, transparent 2px);
+  background-size: 36px 36px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040406;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #AA852C;
+  border-radius: 9999px;
+  border: 1px solid #040406;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F3D053;
+}
+
+/* Prevent unwanted canvas touch gestures blocking page scroll on mobile */
+canvas {
+  touch-action: pan-y;
+}
