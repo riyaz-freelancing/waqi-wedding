@@ -17,6 +17,29 @@ import { ReflectiveFloor } from './ReflectiveFloor';
 import { Particles } from './Particles';
 import { CelebrationFireworks } from './CelebrationFireworks';
 
+export const THEME_3D_CONFIGS = {
+  navy: {
+    bg: '#030B18',
+    fog: '#051329',
+    ambient: '#0A2044',
+  },
+  emerald: {
+    bg: '#020E0A',
+    fog: '#03140F',
+    ambient: '#0A261D',
+  },
+  maroon: {
+    bg: '#0F0206',
+    fog: '#140309',
+    ambient: '#2D0A14',
+  },
+  noir: {
+    bg: '#040406',
+    fog: '#060609',
+    ambient: '#2A2416',
+  },
+};
+
 /**
  * Main 3D Experience (WebGL Scene)
  */
@@ -27,10 +50,13 @@ export const Experience = ({
   onToggleGate,
   onSceneBurstTrigger,
   fireworksRef,
+  theme = 'navy',
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [enableEffects, setEnableEffects] = useState(true);
   const [isLowPower, setIsLowPower] = useState(false);
+
+  const theme3D = THEME_3D_CONFIGS[theme] || THEME_3D_CONFIGS.navy;
 
   // Detect mobile & hardware capabilities
   useEffect(() => {
@@ -73,23 +99,25 @@ export const Experience = ({
           }}
         />
 
-        {/* Deep Obsidian Noir Fog */}
-        <color attach="background" args={['#040406']} />
-        <fogExp2 attach="fog" args={['#060609', 0.038]} />
+        {/* Dynamic Royal 3D Atmosphere */}
+        <color attach="background" args={[theme3D.bg]} />
+        <fogExp2 attach="fog" args={[theme3D.fog, 0.034]} />
 
-        {/* 24K Gold & Obsidian Noir Lighting Rig */}
-        <ambientLight intensity={0.45} color="#2A2416" />
+        {/* 24K Gold & Royal Theme Lighting Rig */}
+        <ambientLight intensity={0.65} color={theme3D.ambient} />
         <directionalLight
           position={[-6, 12, 10]}
-          intensity={1.3}
-          color="#FFF5D6"
+          intensity={1.6}
+          color="#FFF2C6"
           castShadow={!isLowPower}
         />
         <directionalLight
           position={[6, 8, -5]}
-          intensity={0.55}
-          color="#D4AF37"
+          intensity={0.85}
+          color="#F3D053"
         />
+        {/* Warm Golden Radiance Uplight for Grand Gate */}
+        <pointLight position={[0, -0.5, 5]} intensity={2.2} color="#F5D365" distance={16} />
 
         {/* Drei HDRI Environment (Night preset for luxury reflections) */}
         <Environment preset="night" environmentIntensity={0.8} />

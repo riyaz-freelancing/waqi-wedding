@@ -3,35 +3,144 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-noir: #08080A;
-    --bg-noir-deep: #040406;
-    --bg-noir-card: #111116;
-    --bg-navy: #08080A;
-    --bg-navy-deep: #040406;
+  /* Default: Royal Midnight Sapphire / Navy Blue & 24K Gold */
+  :root,
+  [data-theme="navy"] {
+    --bg-primary: #081B38;
+    --bg-deep: #020814;
+    --bg-noir: #081B38;
+    --bg-noir-deep: #020814;
+    --bg-noir-card: #0A2246;
+    --bg-navy: #081B38;
+    --bg-navy-deep: #020814;
+    --bg-navy-card: #0A2246;
+    --bg-card-subtle: #0E2E5C;
     --color-gold: #D4AF37;
     --color-gold-24k: #F3D053;
     --color-gold-light: #FFF0A8;
     --color-gold-dark: #7A5F19;
     --color-ivory: #FFFDF9;
     --color-ivory-muted: #D5CDC0;
+    --card-gradient-top: rgba(16, 44, 92, 0.94);
+    --card-gradient-bottom: rgba(3, 10, 26, 0.98);
+    --card-border: rgba(243, 208, 83, 0.50);
+    --card-glow: rgba(30, 95, 210, 0.40);
+    --pattern-bg: #020814;
+  }
+
+  /* Royal Emerald Green & Gold */
+  [data-theme="emerald"] {
+    --bg-primary: #061D16;
+    --bg-deep: #020E0A;
+    --bg-noir: #061D16;
+    --bg-noir-deep: #020E0A;
+    --bg-noir-card: #092B21;
+    --bg-navy: #061D16;
+    --bg-navy-deep: #020E0A;
+    --bg-navy-card: #092B21;
+    --bg-card-subtle: #0D382C;
+    --color-gold: #D4AF37;
+    --color-gold-24k: #F3D053;
+    --color-gold-light: #FFF0A8;
+    --color-gold-dark: #7A5F19;
+    --color-ivory: #FFFDF9;
+    --color-ivory-muted: #D5CDC0;
+    --card-gradient-top: rgba(12, 48, 38, 0.92);
+    --card-gradient-bottom: rgba(4, 20, 15, 0.97);
+    --card-border: rgba(212, 175, 55, 0.38);
+    --card-glow: rgba(16, 92, 72, 0.32);
+    --pattern-bg: #020E0A;
+  }
+
+  /* Midnight Sapphire & Gold */
+  [data-theme="navy"] {
+    --bg-primary: #071326;
+    --bg-deep: #030814;
+    --bg-noir: #071326;
+    --bg-noir-deep: #030814;
+    --bg-noir-card: #0A1C38;
+    --bg-navy: #071326;
+    --bg-navy-deep: #030814;
+    --bg-navy-card: #0A1C38;
+    --bg-card-subtle: #0E254A;
+    --color-gold: #D4AF37;
+    --color-gold-24k: #F3D053;
+    --color-gold-light: #FFF0A8;
+    --color-gold-dark: #7A5F19;
+    --color-ivory: #FFFDF9;
+    --color-ivory-muted: #D5CDC0;
+    --card-gradient-top: rgba(10, 28, 56, 0.92);
+    --card-gradient-bottom: rgba(4, 12, 26, 0.97);
+    --card-border: rgba(212, 175, 55, 0.38);
+    --card-glow: rgba(20, 60, 120, 0.3);
+    --pattern-bg: #030814;
+  }
+
+  /* Velvet Maroon / Royal Wine & Gold */
+  [data-theme="maroon"] {
+    --bg-primary: #1C060E;
+    --bg-deep: #0F0206;
+    --bg-noir: #1C060E;
+    --bg-noir-deep: #0F0206;
+    --bg-noir-card: #2B0A16;
+    --bg-navy: #1C060E;
+    --bg-navy-deep: #0F0206;
+    --bg-navy-card: #2B0A16;
+    --bg-card-subtle: #3A0E1F;
+    --color-gold: #D4AF37;
+    --color-gold-24k: #F3D053;
+    --color-gold-light: #FFF0A8;
+    --color-gold-dark: #7A5F19;
+    --color-ivory: #FFFDF9;
+    --color-ivory-muted: #D5CDC0;
+    --card-gradient-top: rgba(44, 10, 22, 0.92);
+    --card-gradient-bottom: rgba(18, 4, 9, 0.97);
+    --card-border: rgba(212, 175, 55, 0.38);
+    --card-glow: rgba(120, 20, 50, 0.3);
+    --pattern-bg: #0F0206;
+  }
+
+  /* Obsidian Noir & Gold */
+  [data-theme="noir"] {
+    --bg-primary: #08080A;
+    --bg-deep: #040406;
+    --bg-noir: #08080A;
+    --bg-noir-deep: #040406;
+    --bg-noir-card: #111116;
+    --bg-navy: #08080A;
+    --bg-navy-deep: #040406;
+    --bg-navy-card: #111116;
+    --bg-card-subtle: #181822;
+    --color-gold: #D4AF37;
+    --color-gold-24k: #F3D053;
+    --color-gold-light: #FFF0A8;
+    --color-gold-dark: #7A5F19;
+    --color-ivory: #FFFDF9;
+    --color-ivory-muted: #D5CDC0;
+    --card-gradient-top: rgba(24, 24, 32, 0.92);
+    --card-gradient-bottom: rgba(10, 10, 14, 0.97);
+    --card-border: rgba(212, 175, 55, 0.32);
+    --card-glow: rgba(212, 175, 55, 0.15);
+    --pattern-bg: #040406;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--bg-noir-deep);
+    background-color: var(--bg-deep);
     color: var(--color-ivory);
+    transition: background-color 0.5s ease;
   }
 
   body {
-    background-color: var(--bg-noir-deep);
+    background-color: var(--bg-deep);
     color: var(--color-ivory);
     font-family: 'Jost', sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s ease;
   }
 
   ::selection {
@@ -67,41 +176,69 @@
 }
 
 .gold-border-glow {
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid var(--card-border);
   box-shadow: 0 0 25px rgba(243, 208, 83, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.08);
 }
 
-/* Obsidian Noir Frosted Glass Cards with 24K Gold Accents */
+/* Royal Frosted Glass Cards with Adaptive Theme Accents */
 .glass-emerald-card,
-.glass-noir-card {
-  background: radial-gradient(circle at 50% 0%, rgba(24, 24, 32, 0.88) 0%, rgba(10, 10, 14, 0.94) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(212, 175, 55, 0.32);
+.glass-noir-card,
+.glass-navy-card {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, var(--card-gradient-top) 0%, rgba(8, 22, 52, 0.96) 65%, var(--card-gradient-bottom) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--card-border);
   box-shadow: 
-    0 25px 60px -15px rgba(0, 0, 0, 0.98),
-    0 0 30px rgba(212, 175, 55, 0.12),
-    inset 0 1px 1px rgba(255, 240, 168, 0.25);
+    0 30px 80px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px var(--card-glow),
+    0 0 20px rgba(243, 208, 83, 0.25),
+    inset 0 1px 2px rgba(255, 240, 168, 0.5),
+    inset 0 0 35px rgba(10, 35, 85, 0.35);
+  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-.glass-navy-card {
-  background: radial-gradient(circle at 50% 0%, rgba(18, 18, 24, 0.92) 0%, rgba(6, 6, 8, 0.98) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(212, 175, 55, 0.24);
-  box-shadow: 
-    0 25px 60px -15px rgba(0, 0, 0, 0.98),
-    0 0 25px rgba(212, 175, 55, 0.08),
-    inset 0 1px 1px rgba(255, 240, 168, 0.18);
+/* Inset Royal Double Filigree Frame */
+.glass-emerald-card::after,
+.glass-noir-card::after,
+.glass-navy-card::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(243, 208, 83, 0.25);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .glass-emerald-card::after,
+  .glass-noir-card::after,
+  .glass-navy-card::after {
+    inset: 8px;
+  }
+}
+
+/* Embossed 24K Liquid Gold Foil Calligraphy */
+.gold-foil-calligraphy {
+  background: linear-gradient(180deg, #FFFCEB 0%, #F5D365 30%, #D4AF37 70%, #9E7A1C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(243, 208, 83, 0.45));
+}
+
+.gold-glow-title {
+  text-shadow: 0 0 25px rgba(243, 208, 83, 0.45), 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Islamic Geometric Background Pattern */
 .bg-arabesque-pattern {
-  background-color: #040406;
+  background-color: var(--pattern-bg);
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.09) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 0% 0%, rgba(243, 208, 83, 0.12) 2px, transparent 2px);
-  background-size: 36px 36px;
+    radial-gradient(circle at 50% 50%, rgba(243, 208, 83, 0.12) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 0% 0%, rgba(30, 95, 210, 0.18) 2px, transparent 2px);
+  background-size: 32px 32px;
+  transition: background-color 0.5s ease;
 }
 
 /* Custom Scrollbar */
@@ -127,3 +264,10 @@
 canvas {
   touch-action: pan-y;
 }
+
+/* Calligraphy & Script Typography for Wedding Names */
+.font-script,
+.font-great-vibes {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+}
+

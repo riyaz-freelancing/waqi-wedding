@@ -21,6 +21,19 @@ export function App() {
   const [hasWebGL, setHasWebGL] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
+  // Active Wedding Theme: Royal Midnight Sapphire Navy Blue & Gold
+  const [currentTheme, setCurrentTheme] = useState('navy');
+
+  // Apply theme to document root
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', 'navy');
+      try {
+        localStorage.setItem('waqi_wedding_theme', 'navy');
+      } catch (_) {}
+    }
+  }, []);
+
   // Gate Interaction State
   const [isGateOpen, setIsGateOpen] = useState(false);
   const [gateOpenTransition, setGateOpenTransition] = useState(0);
@@ -148,7 +161,7 @@ export function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#040406] text-ivory selection:bg-gold/30 selection:text-[#FFFDF9] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[var(--bg-deep,#030B18)] text-ivory selection:bg-gold/30 selection:text-[#FFFDF9] overflow-x-hidden transition-colors duration-500">
       {/* 1. Gold Crescent Suspense Loader with Live Percentage */}
       <Loader isLoaded={isLoaded} />
 
@@ -169,6 +182,7 @@ export function App() {
         gateOpenTransition={gateOpenTransition}
         onToggleGate={handleOpenGate}
         fireworksRef={fireworksRef}
+        theme={currentTheme}
       />
 
       {/* 6. Semantic Scrollable HTML Overlay Sections (9 Scenes) */}

@@ -16,20 +16,27 @@ export default {
     },
     extend: {
       colors: {
-        // Obsidian Noir Luxury Dark Palette
-        noir: {
-          deep: '#040406',
-          DEFAULT: '#08080A',
-          card: '#111116',
-          subtle: '#181822',
-          border: 'rgba(212, 175, 55, 0.28)',
-        },
+        // Royal Midnight Sapphire Navy Blue & Gold Palette
         navy: {
-          deep: '#040406',
-          DEFAULT: '#08080A',
-          card: '#111116',
-          subtle: '#181822',
-          border: 'rgba(212, 175, 55, 0.28)',
+          deep: 'var(--bg-navy-deep, #030B18)',
+          DEFAULT: 'var(--bg-navy, #081B38)',
+          card: 'var(--bg-navy-card, #0A2246)',
+          subtle: 'var(--bg-card-subtle, #0E2E5C)',
+          border: 'var(--card-border, rgba(212, 175, 55, 0.40))',
+        },
+        noir: {
+          deep: 'var(--bg-noir-deep, #030B18)',
+          DEFAULT: 'var(--bg-noir, #081B38)',
+          card: 'var(--bg-noir-card, #0A2246)',
+          subtle: 'var(--bg-card-subtle, #0E2E5C)',
+          border: 'var(--card-border, rgba(212, 175, 55, 0.40))',
+        },
+        emerald: {
+          deep: 'var(--bg-deep, #030B18)',
+          DEFAULT: 'var(--bg-primary, #081B38)',
+          card: 'var(--bg-noir-card, #0A2246)',
+          subtle: 'var(--bg-card-subtle, #0E2E5C)',
+          border: 'var(--card-border, rgba(212, 175, 55, 0.40))',
         },
         // 24K Gold & Metallic Foil Accents
         gold: {
@@ -65,6 +72,9 @@ export default {
         cinzel: ['"Cinzel"', 'serif'],
         manrope: ['"Manrope"', 'system-ui', 'sans-serif'],
         arabic: ['"Amiri"', 'serif'],
+        script: ['"Great Vibes"', 'cursive'],
+        greatVibes: ['"Great Vibes"', 'cursive'],
+        alexBrush: ['"Alex Brush"', 'cursive'],
       },
       letterSpacing: {
         widest1: '0.15em',
